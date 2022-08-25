@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard Copy 3</title>
+    <g id="Artboard-Copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="512" height="512"></rect>
+        <path d="M-110.724325,253.498654 L110.444202,253.498654 L110.729631,222.436945 L269.015365,224.25014 L267.587793,253.498654 L404.794576,252.60009 C474.520486,255.440433 535.618842,213.197563 588.089646,125.871481 C640.56045,38.5453986 689.031947,45.5434468 733.504138,146.865625 L616.275675,419.498654 L-110.724325,419.498654" id="Rectangle" stroke="#EE0000" stroke-width="20" transform="translate(311.389906, 242.367356) rotate(-31.000000) translate(-311.389906, -242.367356) "></path>
+        <polyline id="Path" stroke="#EE0000" stroke-width="20" points="68.340372 185.363484 113.490046 158.452315 24.1983659 -13.9039036 386.5 -73.0250456"></polyline>
+        <line x1="386.5" y1="404.5" x2="458.960643" y2="527.319374" id="Line" stroke="#EE0000" stroke-width="20" stroke-linecap="square"></line>
+        <polyline id="Path-2" stroke="#EE0000" stroke-width="20" points="86.7608213 112.737513 220.216728 33.5174513 296.073583 159.899597 345.672878 127.67169"></polyline>
+        <rect id="Rectangle" stroke="#000" stroke-width="40" x="-1" y="-1" width="512" height="512" rx="102.4"></rect>
+        <path d="M527,-14 L527,527 L-16,527 L-16,-14 L527,-14 Z M454.254562,11.6398458 L53,11.6398458 L12.6010231,57.7096746 L12.6010231,460.646232 L40.1425042,499.812773 L460.679416,499.812773 L497.451136,460.646232 L497.451136,43.7587257 L454.254562,11.6398458 Z" id="Combined-Shape" fill="#000"></path>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+{
+	"name": "baulinien",
+	"displayName": "Baulinien",
+	"icon": "icon.svg",
+	"author": "Acryps GmbH",
+	"version": "1.0.0",
+	"scopes": [
+		"core",
+		"ui",
+		"map",
+		"map.layer",
+		"web",
+		"map.location"
+	],
+	"dependencies": {
+		"luucy-types": "^10.16.7"
+	},
+	"devDependencies": {
+		"typescript": "^4.7.4"
+	}
+}
