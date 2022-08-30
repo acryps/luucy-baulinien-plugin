@@ -6,8 +6,8 @@ export interface FeatureInfo {
         geometry: {
             type: string,
             coordinates: [
-                longitude: string,
-                latitude: string
+                longitude: number,
+                latitude: number
             ][]
         },
         geometry_name: string,

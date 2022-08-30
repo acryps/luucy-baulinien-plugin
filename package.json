@@ -10,7 +10,8 @@
 		"map",
 		"map.layer",
 		"web",
-		"map.location"
+		"map.location",
+		"map.camera"
 	],
 	"dependencies": {
 		"luucy-types": "^10.16.7"
