@@ -97,6 +97,10 @@ export class ConstructionLineHandler {
         section.add(
             new ui.Button(ui.icons.camera, 'Focus', () => this.focusHighlight(highlight))
         );
+        section.add(
+            new ui.Button(ui.icons.export, 'Download GeoJSON'.translate.german('GeoJSON herunterladen'), () => ui.download(
+                this.buildGeoJSONFile(props.ogc_fid.toString(), 'LineString', featureInfo.features[0].geometry.coordinates)))
+        );
 
         this.app.insertAfter(section, this.separator);
         //#endregion
@@ -132,6 +136,12 @@ export class ConstructionLineHandler {
 
     private focusHighlight(highlight: Highlight) {
         map.focus([highlight.line]);
+    }
+
+    private buildGeoJSONFile(id: string, type: string, coordinates: [longitude: number, latitude: number][]): File {
+        let content = { type, coordinates };
+
+        return File.fromString(`${id}-${Date.now()}.geojson`, JSON.stringify(content));
     }
 
     private buildFeatureInfoUrl(position: GlobalPosition) {
