@@ -3,20 +3,24 @@ import { FeatureInfo } from '../models/feature-info';
 import { API_BASE_URL, WMS_LAYER_NAME, SELECT_BOX_THRESHOLD } from '../constants';
 
 export class ConstructionLineHandler {
-    private app: ui.AppSection;
+    private readonly app: ui.AppSection;
+    private readonly separator: ui.Separator;
+    
+    private readonly lineColor: Color;
+    private readonly lineThickness: number;
+    private readonly markerColor: Color;
+
     private highlights: Highlight[];
 
-    private lineColor: Color;
-    private lineThickness: number;
-    private markerColor: Color;
-
-    constructor(app: ui.AppSection) {
+    constructor(app: ui.AppSection, separator: ui.Separator) {
         this.app = app;
-        this.highlights = [];
+        this.separator = separator;
 
         this.lineColor = Color.lightpink;
         this.lineThickness = 3;
         this.markerColor = Color.antiquewhite;
+
+        this.highlights = [];
     }
 
     select(position: GlobalPosition) {
@@ -94,7 +98,7 @@ export class ConstructionLineHandler {
             new ui.Button(ui.icons.camera, 'Focus', () => this.focusHighlight(highlight))
         );
 
-        this.app.add(section);
+        this.app.insertAfter(section, this.separator);
         //#endregion
     }
 
