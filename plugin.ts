@@ -4,7 +4,7 @@ import { ConstructionLineHandler } from './handler/construction-line-handler';
 const app = ui.createProjectPanelSection();
 app.add(new ui.Paragraph(
     'Click on the map to view information about the selected construction line.'
-    .translate.german('Klicken auf die Karte, um Informationen über die ausgewählte Baulinie anzuzeigen.')
+    .translate.german('Klicken Sie auf die Karte, um Informationen über die ausgewählte Baulinie anzuzeigen.')
 ));
 
 const constructionLineHandler = new ConstructionLineHandler(app);
