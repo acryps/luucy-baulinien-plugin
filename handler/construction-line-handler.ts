@@ -18,7 +18,7 @@ export class ConstructionLineHandler {
 
         this.lineColor = Color.lightpink;
         this.lineThickness = 3;
-        this.markerColor = Color.antiquewhite;
+        this.markerColor = Color.lightpink;
 
         this.highlights = [];
     }
@@ -52,7 +52,12 @@ export class ConstructionLineHandler {
     }
     
     private addHighlight(featureInfo: FeatureInfo) {
-        const props = featureInfo.features[0].properties;
+        const props = featureInfo.features[0]?.properties;
+
+        if (!props) {
+            return;
+        }
+
         const globalPositions = featureInfo.features[0].geometry.coordinates.map(c =>
             new GlobalPosition(c[1], c[0]));
 
@@ -61,6 +66,7 @@ export class ConstructionLineHandler {
         
         const markers = globalPositions.map(p => {
             const marker = new map.Marker(p, this.markerColor);
+            marker.overlayBuildings = true;
             marker.hide();
 
             return marker;
@@ -95,11 +101,16 @@ export class ConstructionLineHandler {
         section.add(showMarkersCheckbox);
 
         section.add(
-            new ui.Button(ui.icons.camera, 'Focus', () => this.focusHighlight(highlight))
+            new ui.Button(
+                'Focus'.translate.german('Fokussieren'), 
+                () => this.focusHighlight(highlight)
+            )
         );
         section.add(
-            new ui.Button(ui.icons.export, 'Download GeoJSON'.translate.german('GeoJSON herunterladen'), () => ui.download(
-                this.buildGeoJSONFile(props.ogc_fid.toString(), 'LineString', featureInfo.features[0].geometry.coordinates)))
+            new ui.Button(
+                'Download GeoJSON'.translate.german('GeoJSON herunterladen'), 
+                () => ui.download(this.buildGeoJSONFile(props.ogc_fid.toString(), 'LineString', featureInfo.features[0].geometry.coordinates))
+            )
         );
 
         this.app.insertAfter(section, this.separator);
@@ -111,7 +122,6 @@ export class ConstructionLineHandler {
         highlight.line.remove();
 
         for (const marker of highlight.markers) {
-            marker.hide(); // unnecessary as soon as .remove() works
             marker.remove();
         }
 
@@ -145,9 +155,6 @@ export class ConstructionLineHandler {
     }
 
     private buildFeatureInfoUrl(position: GlobalPosition) {
-        const bbox = `${position.longitude - SELECT_BOX_THRESHOLD},${position.latitude - SELECT_BOX_THRESHOLD},${
-            position.longitude + SELECT_BOX_THRESHOLD},${position.latitude + SELECT_BOX_THRESHOLD}`;
-
         const params = {
             service: 'WMS',
             version: '1.1.1',
@@ -160,12 +167,17 @@ export class ConstructionLineHandler {
             info_format: 'application/json',
             x: 0,
             y: 0,
-            bbox
+            bbox: [
+                position.longitude - SELECT_BOX_THRESHOLD,
+                position.latitude - SELECT_BOX_THRESHOLD,
+                position.longitude + SELECT_BOX_THRESHOLD,
+                position.latitude + SELECT_BOX_THRESHOLD
+            ]
         }
     
         let url = `${API_BASE_URL}?`;
     
-        for (const key of Object.keys(params)) {
+        for (const key in params) {
             url += `${key}=${params[key]}&`;
         }
         
