@@ -3,7 +3,7 @@
 	"displayName": "Baulinien",
 	"icon": "icon.svg",
 	"author": "Acryps GmbH",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"scopes": [
 		"core",
 		"ui",
