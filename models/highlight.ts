@@ -1,7 +1,7 @@
 export interface Highlight {
     line: map.Line,
     section: ui.Section,
-    globalPositions: GlobalPosition[],
+    coordinates: GlobalPosition[],
     markers: map.Marker[],
     showMarkers: boolean
 }
