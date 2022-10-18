@@ -1,8 +1,11 @@
 {
 	"name": "baulinien",
-	"displayName": "Baulinien",
+	"displayName": {
+		"de": "Baulinien",
+		"en": "Structural Lines"
+	},
 	"icon": "icon.svg",
-	"author": "Acryps GmbH",
+	"internal": true,
 	"version": "1.0.1",
 	"scopes": [
 		"core",
