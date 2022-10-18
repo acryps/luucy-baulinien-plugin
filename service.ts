@@ -1,4 +1,4 @@
-import { API_BASE_URL, FIND_BOX_THRESHOLD, SELECT_BOX_THRESHOLD, WMS_LAYER_NAME } from "./constants";
+import { API_BASE_URL, SELECT_BOX_THRESHOLD, WMS_LAYER_NAME } from "./constants";
 import { FeatureInfo } from "./models/feature-info";
 
 export class Service {
